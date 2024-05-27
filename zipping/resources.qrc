@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="download.png">resources/icons/download.png</file> <!-- https://iconscout.com/free-icon/download-1438181 -->
+        <file alias="upload.png">resources/icons/upload.png</file> <!--  https://iconscout.com/free-icon/upload-1440158 -->
+        <file alias="zipper.png">resources/icons/zipper.png</file> <!-- https://iconscout.com/free-icon/zipper-9933651 -->
+        <file alias="FS_file.svg">resources/icons/FS_file.svg</file> 
+        <file alias="FS_folder.svg">resources/icons/FS_folder.svg</file> <!-- https://iconscout.com/free-icon/folder-2219 -->
+        <file alias="zip-file.png">resources/icons/zip-file.png</file> <!-- https://iconscout.com/free-icon/file-zip-archive-document-rar-winrar-winzip -->
+        <file alias="delete.png">resources/icons/delete.png</file> <!-- https://iconscout.com/free-icon/delete-3959571 -->
+        <file alias="warning.png">resources/icons/warning.png</file> <!-- https://iconscout.com/free-icon/warning-272 -->
+        <file alias="info.png">resources/icons/info.png</file> <!-- https://iconscout.com/free-icon/info-10267933 -->
+        <file alias="greetings.txt">resources/files/greetings.txt</file>
+        <file alias="folder_white.png">resources/icons/folder_white.png</file> <!-- https://iconscout.com/free-icon/folder-2634356 -->
+        <file alias="notification.gif">resources/icons/notification.gif</file> <!-- https://iconscout.com/free-lottie-animation/notification-11179736 -->
+        <file alias="close.svg">resources/icons/close.svg</file> <!-- https://iconscout.com/free-icon/close-1439770 -->
+        <file alias="maximize.svg">resources/icons/maximize.svg</file> <!-- https://iconscout.com/free-icon/maximize-19 -->
+        <file alias="minimize.svg">resources/icons/minimize.svg</file> <!-- https://iconscout.com/free-icon/minimize-40 -->
+        <file alias="shrink.svg">resources/icons/shrink.svg</file> <!-- https://iconscout.com/free-icon/minimize-1779402 -->
+        <file alias="appstyle.qss">resources/files/appstyle.qss</file>
+    </qresource>
+</RCC>

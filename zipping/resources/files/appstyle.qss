@@ -1,0 +1,27 @@
+QWidget {
+	background-color: #282C34;
+ 	color: #ABB2BF;
+}
+
+QPushButton {
+ 	border: 2px solid rgba(255, 255, 255, 128);
+	border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color: #20B2AA;
+}
+
+QTreeView {
+	border: 2px solid rgba(255, 255, 255, 128);
+	border-radius: 10px;	
+}
+
+QToolTip {
+    background-color: #87CEFA; 
+    color: #333333;            
+    border: 1px solid #aaaaaa; 
+    font-family: Consolas;     
+    font-size: 12pt;           
+    padding: 5px;              
+}
