@@ -1,0 +1,29 @@
+Usage:
+  1. Select file or folder (further: resource) to be compressed
+	- double click on the resource icon from the left filesystem observer
+	- alternatively click on the resoure icon from the left filesystem panel and then press "Upload" button below
+	- alternatively drag several resources into the drop region on the center (dashed rectangle)
+
+  2. Compression starts automatically once resource(s) uploaded
+
+  3. Compression finishes when "zipper" icon appeares on the resource(s)
+
+  4. If any error or warning occures - the bell icon above drop region will ring, hower mouse over it to see logs
+
+  4. Select path for zipped resource(s) to be saved:
+	- double click on the folder icon from the right filesystem observer
+	- alternatively click on folder icon from the right filesystem panel and then press "Download" button below
+
+  5. To remove resource:
+	- hover mouse over the resource icon - a trashbox icon will appear - click on it, and resource is no more
+	- alternatively press "Move to trash" button below drop region to remove all uploaded resources
+
+Limitations:
+  1. support only .zip format
+  2. symlinks within the folder will be ignored while compressing
+  3. Total upload limit - 500 MB, total resources number - 40
+
+
+Extra:
+  1. It is recommended not to delete resource while being zipped or downloaded in order to prevent latency, 
+     caused by safely stop of zipping/saving thread.

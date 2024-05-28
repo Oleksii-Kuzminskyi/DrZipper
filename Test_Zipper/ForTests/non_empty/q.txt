@@ -1,0 +1,89 @@
+bool compress_text_file(const char * fname)
+{
+	//open file
+	std::ifstream infile(fname, std::ios::in /*| std::ios::binary*/);
+	if (!infile.is_open())
+	{
+		std::cout << "Could not open file" << std::endl;
+		return 0;
+	}
+	std::cout << "File opened" << std::endl;
+
+	//get length of file
+	infile.seekg(0, infile.end);
+	int length = infile.tellg();
+	infile.seekg(0, infile.beg);
+
+	//alloc memory for writing
+	char * buffer = new (std::nothrow) char[length];
+	if (!buffer)
+	{
+		std::cout << "Could not allocate memory" << std::endl;
+		infile.close();
+		return 0;
+	}
+	std::cout << "memory allocated" << std::endl;
+
+	//read file
+	if (!infile.read(buffer, length))
+	{
+		std::cout << "only " << infile.gcount() << " chars read" << std::endl;
+		infile.close();
+		delete [] buffer;
+		return 0;
+	}
+	infile.close();
+	std::cout << "characters successfully read" << std::endl;
+
+	//create archieve
+	zip_t * archive_handler = zip_open("output.zip", ZIP_CREATE | ZIP_TRUNCATE, NULL);
+	if (!archive_handler)
+	{
+		std::cout << "Could not create archive" << std::endl;
+		delete [] buffer;
+		return 0;
+	}
+	std::cout << "archive created" << std::endl;
+
+
+	//create zip-source
+	zip_source_t *source = zip_source_buffer(archive_handler, buffer, length, 0); 
+	if (!source)
+	{
+		std::cout << "error, while creating source" << std::endl;
+		zip_close(archive_handler);
+		delete [] buffer;
+		return 0;
+	}
+	std::cout << "zip source created" << std::endl;
+
+	//place zip-source to archive
+	if (-1 == zip_file_add(archive_handler, fname, source, ZIP_FL_ENC_UTF_8))
+	{
+		std::cout << "Could not add source to archive, reason: " 
+				  << zip_strerror(archive_handler) << std::endl; 
+		zip_source_free(source); //to think!!!!!!!!!
+		zip_close(archive_handler);
+		delete [] buffer;
+		return 0;
+	}
+	std::cout << "source placed in archive" << std::endl;
+
+	//cleanup, if all is OK
+	//zip_source_free(source);
+	std::cout << "Wish to save archive (default - no, 1 - yes): ";
+	int a;
+	std::cin >> a;
+	if (a == 1)
+	{
+		zip_close(archive_handler);
+		delete [] buffer; //doc says - "data must be valid till the end"
+		std::cout << "end cleaning" << std::endl;
+	}
+	else
+	{
+		zip_discard(archive_handler);
+		delete [] buffer; //doc says - "data must be valid till the end"
+	}
+	return 1;
+}

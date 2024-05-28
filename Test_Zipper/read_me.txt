@@ -1,0 +1,1 @@
+place 'ForTests' folder next to build executable file
